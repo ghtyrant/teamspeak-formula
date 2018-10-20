@@ -45,6 +45,13 @@ teamspeak_ini:
     - require:
       - cmd: teamspeak_archive
 
+teamspeak_license_accepted:
+  file.managed:
+    - name: {{ teamspeak.directory }}/.ts3server_license_accepted
+    - mode: 640
+    - require:
+      - cmd: teamspeak_archive
+
 {% if teamspeak.license is defined %}
 teamspeak_license:
     file.managed:
